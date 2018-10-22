@@ -7,11 +7,11 @@ cursor = conn.cursor()
 
 
 def get_posts(cursor, query):
-  cursor.execute(query)
-  columns = [desc[0] for desc in cursor.description]
-  posts = cursor.fetchall()
-  posts_data = [columns, posts]
-  return posts_data
+    cursor.execute(query)
+    columns = [desc[0] for desc in cursor.description]
+    posts = cursor.fetchall()
+    posts_data = [columns, posts]
+    return posts_data
 
 
 def display_posts(post_data):
@@ -21,7 +21,7 @@ def display_posts(post_data):
         if(entries_index == 0):
             entries_index += 1
             print(dashes)
-            print( '{:<40s}{:<10s}'.format(entries[0], entries[1]))
+            print('{:<40s}{:<10s}'.format(entries[0], entries[1]))
             print(dashes)
         else:
             for line in entries:
@@ -38,16 +38,10 @@ def query_db():
         cursor = conn.cursor()
         print(questions[count])
         count += 1
-        display_posts(get_posts(cursor, query)) 
+        display_posts(get_posts(cursor, query))
         print('\n \n')
     conn.close()
 
-    
-#run the code
+
+# run the code
 query_db()
-
-
-
-
-
-
